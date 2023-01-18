@@ -9,20 +9,62 @@ function buttonDark() {
 }
 
 // Switches night mode.
-var lightmode = true;
+var lightMode = true;
 function changeNightMode() {
-    console.log(lightmode);
+    console.log(lightMode);
 
-    if (lightmode == true) {
+    if (lightMode == true) {
         document.getElementById('night-mode-but').setAttribute( "onmouseenter", "buttonLight()" );
         document.getElementById('night-mode-but').setAttribute( "onmouseleave", "buttonDark()" );
-        lightmode = false;
+        lightMode = false;
     } else {
         document.getElementById('night-mode-but').setAttribute( "onmouseenter", "buttonDark()" );
         document.getElementById('night-mode-but').setAttribute( "onmouseleave", "buttonLight()" );
-        lightmode = true;
+        lightMode = true;
     }
+}
 
+var dropButActive = false;
+function clickDropButton () {
+    if (dropButActive == true) {
+        document.getElementById('left-drop').style.display = 'none';
+        dropButActive = false;
+    } else {
+        document.getElementById('left-drop').style.display = 'block';
+        dropButActive = true;
+    }
+}
+
+
+
+// Button which will show search bar.
+var searchButActive = false;
+/* resize = If the user is resizing, certain things need to happen depending on
+if the search bar is active*/
+function clickSearchButton () {
+    if (searchButActive == true) {
+        document.getElementById('search-input').style.visibility = "hidden";
+        document.getElementById('search-input').style.width = "0px";
+        document.getElementById('search-bar').style.marginRight = "0%";
+        $(".search-resize").removeClass('search-resize');
+        
+        searchButActive = false;
+    } else {
+        document.getElementById('search-input').style.visibility = "visible";
+        document.getElementById('search-input').style.width = "200px";
+        document.getElementById('search-bar').style.marginRight = "0.5%";
+
+        document.getElementById('drop-down').classList.add('search-resize');
+        document.getElementById('nav-but-1').classList.add('search-resize');
+        document.getElementById('nav-but-2').classList.add('search-resize');
+        $(".logo-text").addClass('search-resize');
+        $("#middle-nav").addClass('search-resize');
+        $("#hidden-middle-nav").addClass('search-resize');
+        $("#left-nav").addClass('search-resize');
+        $("#right-nav").addClass('search-resize');
+
+        searchButActive= true;
+    }
 }
 
 
@@ -34,34 +76,32 @@ $(document).ready(function() {
     
     // Changes the navigation bar, when resizing.
     function when_resizing() {
-    when_scrolling();
-    let windowWidth = $(window).width();
-    if (windowWidth < 1000) {
-        document.getElementById('middle-nav').style.width = '100px';
-        document.getElementById('right-nav').style.width = windowWidth/2-50 + 'px';
-        document.getElementById('left-nav').style.width = windowWidth/2-50 + 'px';
-    } else {
-        document.getElementById('middle-nav').style.width = 'calc(100% - 2*var(--nav-sides-width))';
-        document.getElementById('right-nav').style.width = 'var(--nav-sides-width)';
-        document.getElementById('left-nav').style.width = 'var(--nav-sides-width)';
-    }
+        when_scrolling();
+        let windowSize = $(window).width();
+        document.getElementById('home-info').innerHTML = windowSize;
+        // If drop down button is not visible anymore hide drop down content.
+        if ($('#drop-down').css('display') == 'none') {
+            document.getElementById('left-drop').style.display = 'none';
+            dropButActive = false;
+        }
     }
     
+
     function when_scrolling() {
     let scroll = $(window).scrollTop();
-    if (scroll <= 400) {
+    let windowSize = $(window).width();
+    if (windowSize < 1100 || scroll > 400) {
+        document.getElementById('home-button').style.height = '100px';
+        document.getElementById('home-button').style.width = '100px';
+        document.getElementById('home-button').style.left = -50 + 0.5*document.getElementById('middle-nav').offsetWidth + 'px';
+        document.getElementById('home-button').style.top = '-10px';
+    }
+    else {
         let imageSize = homeButtonSize - scroll*pixelScrollHorizontal;
         document.getElementById('home-button').style.height = imageSize+'px';
         document.getElementById('home-button').style.width = imageSize+'px';
         document.getElementById('home-button').style.left = -0.5*(imageSize - document.getElementById('middle-nav').offsetWidth)+'px';
         document.getElementById('home-button').style.top = -60 + scroll*pixelScrollVertical+'px';
-    }
-    else {
-        document.getElementById('home-button').style.height = '100px';
-        document.getElementById('home-button').style.width = '100px';
-        document.getElementById('home-button').style.left = -50 + 0.5*document.getElementById('middle-nav').offsetWidth + 'px';
-        document.getElementById('home-button').style.top = '-10px';
-    
     }
     };
     

@@ -15,18 +15,28 @@
     <body>
         
         <nav>
+            <div class="drop-down-content" id="left-drop"><div>d</div><div>e</div></div>
+            <div class="drop-down-content" id="user-drop"><div>Log in</div><div>Profiel</div></div>
             <div id="nav-main-bar">
-                <div class= "ib" id="left-nav"><div class="flex-container-nav">
-                    <div id="nav-search" width="10%"><ion-icon name="search"></ion-icon></div>
-                    <div><a href="index.html">Wereldkaart</a></div>
+                <div id="left-nav"><div class="flex-container-nav">
+                    <div class="nav-button" id="drop-down" onclick="clickDropButton()"><i class="fa fa-bars"></i></div>
+                    <div class="nav-button" id="nav-search" width="10%" onclick="clickSearchButton()"><ion-icon name="search"></ion-icon></div>
+                    <div id="search-bar"><form action="" method="post">
+                        <input type="text" id="search-input" name="fname">
+                    </form></div>
+                    <div class="nav-button" id="nav-but-1"><a href="index.html">Wereldkaart</a></div>
+                    <div class="nav-button" id="nav-but-2"><a href="index.html">Artikelen</a></div>
                 </div></div>
-                <div class = "ib" id="middle-nav"><a href="https://www.youtube.com/watch?v=4-UbHw8eDzM"><img  id="home-button" src="gea-website.png" alt="Geademos Home"></a></div>
-                <div class = "ib" id="right-nav"><div class="flex-container-nav" style="flex-direction:row-reverse">
-                    <div><a href="index.html"><i class="fa-solid fa-user"></i></a></div>
-                    <div id="night-mode-but" onmouseenter="buttonDark()" onmouseleave="buttonLight()" onclick="changeNightMode()"><ion-icon name="sunny"></ion-icon></div>
+                <div class="logo-text">Gea</div>
+                <div id="middle-nav"><a href="https://www.youtube.com/watch?v=4-UbHw8eDzM"><img  id="home-button" src="gea-website.png" alt="Geademos Home"></a></div>
+                <div class="logo-text">Demos</div>
+                <div id="right-nav"><div class="flex-container-nav" style="flex-direction:row-reverse">
+                    <div class="nav-button"><a href="index.html"><i class="fa-solid fa-user"></i> <i class="fa-solid fa-caret-down"></i></a></div>
                     <div><a href="log_in.html">Inloggen</a></div>
-                    <div><a href="index.html">Over ons</a></div>
+                    <div class="nav-button" id="night-mode-but" onmouseenter="buttonDark()" onmouseleave="buttonLight()" onclick="changeNightMode()"><ion-icon name="sunny"></ion-icon></div>
+                    <div class="nav-button" id="nav-but-3"><a href="index.html">Over ons</a></div>
                 </div></div>
+                <div id="hidden-middle-nav"><a href="https://www.youtube.com/watch?v=4-UbHw8eDzM"><img  id="home-button" src="gea-website.png" alt="Geademos Home"></a></div>
             </div>
         </nav>
         <div id="nav-filler"></div>
