@@ -1,5 +1,5 @@
 :root{
-    --nav-sides-width:45%;
+    --nav-sides-width:calc(50% - 150px);
     --height_nav_bar:80px;
 }
 
@@ -32,13 +32,12 @@ body {
     color: white;
     box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.6);
 }
-/* ib = inline block */
-.ib {
+/* Positioning of the navigation blocks right logo text middle left */
+#nav-main-bar > div {
     box-sizing: border-box;
-    --height-ib:var(--height_nav_bar);
     float:left;
-    height:var(--height-ib);
-    line-height: var(--height-ib);
+    height:var(--height_nav_bar);
+    line-height: var(--height_nav_bar);
 }
 
 #left-nav{
@@ -46,11 +45,32 @@ body {
     float:left;
     text-align: left;
     width: var(--nav-sides-width);
+    z-index: 1;
 }
 
 #middle-nav {
     background-color: pink;
-    width: calc(100% - 2*var(--nav-sides-width));
+    width: 100px;
+}
+
+#hidden-middle-nav {
+    display:none;
+    background-color: pink;
+    width: 100px;
+}
+
+.logo-text {
+    width:100px;
+    text-align: center;
+    background-color: blueviolet;
+    font-size: 120%;
+}
+
+#home-button {
+    position: relative;
+    top:-10px;
+    width:100px;
+    height:100px;
 }
 
 #right-nav {
@@ -68,13 +88,6 @@ body {
     min-height: 600px;
 }
 
-#home-button {
-    position: relative;
-    top:-10px;
-    width:100px;
-    height:100px;
-    max-width: 30vw;
-}
 
 .flex-container-nav {
     display:flex;
@@ -84,8 +97,8 @@ body {
 
 }
 
-.flex-container-nav  > div {
-    width: 15%;
+.flex-container-nav  > .nav-button {
+    width: 140px;
     min-width:100px;
     color:purple;
     text-align: center;
@@ -105,9 +118,20 @@ body {
 }
 
 
-.flex-container-nav  div:hover {
+.flex-container-nav  .nav-button:hover {
     background-color: blue;
     color:white;
+}
+
+#search-input {
+    visibility:hidden;
+    width:0px;
+    padding:4%;
+    font-size: 80%;
+    border: solid;
+    border-radius:10% / 50%;
+    transition: width 0.5s;
+    margin-left: 1%;
 }
 
 #nav-search {
@@ -115,3 +139,165 @@ body {
     width:10%;
 }
 
+#night-mode-but {
+    min-width: 50px;
+    width:10%;
+}
+/* Everything with drop-down menu's */
+#drop-down {
+    min-width:50px;
+    width:10%;
+    display:none;
+}
+
+.drop-down-content {
+    display:none;
+    position:fixed; 
+    z-index: 1; 
+    background-color: brown;
+    top: var(--height_nav_bar);
+    width:20%;
+    
+}
+
+.drop-down-content > div {
+    background-color: red;
+    height: 40px;
+    width:100%;
+    border-style:solid;
+    border-width:0px 0px 2px 0px;
+    border-color: black;
+}
+
+.drop-down-content > div:hover {
+    background-color: yellow;
+    height: 40px;
+    width:100%;
+    border-style:solid;
+    border-width:0px 0px 2px 0px;
+    border-color: black;
+}
+
+#user-drop {
+    right:0px;
+    display: block;
+    width:10%;
+}
+
+#user-drop > div {
+    text-align: right;
+    padding-right:5px;
+}
+
+
+
+/* Used when search bar is active, some elements will 
+become hidden because of the size of the search bar. */
+/*
+.search-resize {}
+*/
+
+
+/* The events when the screen gets smaller */
+@media screen and (max-width:1250px) {
+    #drop-down.search-resize {
+        display:block;
+    }
+
+    #nav-but-2.search-resize {
+        display:none;
+    }
+}
+
+@media screen and (max-width:1150px) {
+    #nav-but-1.search-resize {
+        display:none;
+    }
+}
+
+
+/* The events when the screen gets smaller */
+@media screen and (max-width:1100px) {
+    #drop-down {
+        display:block;
+    }
+
+    #nav-but-3 {
+        display:none;
+    }
+
+}
+
+@media screen and (max-width:950px) {
+    #nav-but-2 {
+        display:none;
+    }
+}
+
+@media screen and (max-width:910px) {
+    .logo-text.search-resize {
+        display:none;
+    }
+
+    #middle-nav.search-resize {
+        display:none;
+    }
+
+    #hidden-middle-nav.search-resize {
+        display:block;
+    }
+
+    #left-nav.search-resize {
+        width: calc(60% - 50px);
+    }
+
+    #right-nav.search-resize {
+        width: calc(40% - 50px);
+    }
+}
+
+@media screen and (max-width:800px) {
+    #night-mode-but {
+        display:none;
+    }
+}
+
+@media screen and (max-width:750px) {
+    .logo-text {
+        display:none;
+    }
+
+    #middle-nav {
+        display:none;
+    }
+
+    #hidden-middle-nav {
+        display:block;
+    }
+
+    #left-nav {
+        width: calc(60% - 50px);
+    }
+
+    #right-nav {
+        width: calc(40% - 50px);
+    }
+}
+
+@media screen and (max-width: 600px) {
+    #right-nav.search-resize {
+        display:none;
+    }
+    #left-nav.search-resize {
+        width: calc(100% - 100px);
+    }
+}
+
+@media screen and (max-width: 525px) {
+    #right-nav {
+        display:none;
+    }
+    #left-nav {
+        width: calc(100% - 100px);
+    }
+}
