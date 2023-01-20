@@ -1,19 +1,4 @@
-<!DOCTYPE html>
-
-<html lang="nl">
-    <head>
-        <title>Geademos</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-        <link rel="icon" href="gea-icon.png" sizes="64x64">
-        <link rel="stylesheet" href="style.css">
-        <!--Icon libraries -->
-        <script type="module" src="https://unpkg.com/ionicons@5.0.0/dist/ionicons/ionicons.esm.js"></script>
-        <script nomodule="" src="https://unpkg.com/ionicons@5.0.0/dist/ionicons/ionicons.js"></script>
-        <script src="https://kit.fontawesome.com/f0df45953b.js" crossorigin="anonymous"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-    </head>
-    <body>
-        <nav>
+<nav>
             <!-- Hidden drop down menu-->
             <div class="drop-down-content" id="left-drop">
                 <div class="drop-but" id="drop-but-1"><a href="index.html">Wereldkaart</a></div>
@@ -49,12 +34,9 @@
                     <div class="nav-button" id="nav-but-3"><a href="index.html">Over ons</a></div>
                 </div></div>
                 <!-- Logo appears on the right when resizing to mobile size-->
-                <div id="hidden-middle-nav"><a href="https://www.youtube.com/watch?v=4-UbHw8eDzM"><img  id="home-button" src="gea-website.png" alt="Geademos Home"></a></div>
+                <div id="hidden-middle-nav"><a href="index.html"><img  id="home-button" src="gea-website.png" alt="Geademos Home"></a></div>
             </div>
             <!--Invisible div behind the nav bar, so text won't show up behind the nav bar-->
             <div id="nav-filler"></div>
+            <script src="nav-bar-script.js"></script>
         </nav>
-        <div id="home-info"> INFORMATIE WEBPAGINA, LINKS EN RECHTS VAN HET PLAATJE</div>
-        <script src="scripts.js"></script>
-    </body>
-</html>

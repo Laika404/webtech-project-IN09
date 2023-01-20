@@ -100,17 +100,10 @@ function scalingSearchBar () {
 
 /* This function will only run when the html is already loaded */
 $(document).ready(function() {
-    /* Used for calculating size and position of logo when scrolling. */
-    const homeButtonSize = 500;
-    const pixelScrollHorizontal = (homeButtonSize-100)/400;
-    const pixelScrollVertical = 50/400;
-    
-    /* Changes the navigation bar, when resizing. (Contains when scrolling 
-    because it essential for the display of the logo) */
+
+    /* Changes the navigation bar, when resizing. */
     function when_resizing() {
-        when_scrolling();
         let windowSize = $(window).width();
-        document.getElementById('home-info').innerHTML = windowSize;
         // If drop down button is not visible anymore hide drop down content.
         if ($('#drop-down').css('display') == 'none') {
             document.getElementById('left-drop').style.display = 'none';
@@ -131,34 +124,10 @@ $(document).ready(function() {
         }
     }
     
-    /* function that will run when scrolled, only contains code for resizing the logo */
-    function when_scrolling() {
-    let scroll = $(window).scrollTop();
-    let windowSize = $(window).width();
-    if (windowSize < 1100 || scroll > 400) {
-        document.getElementById('home-button').style.height = '100px';
-        document.getElementById('home-button').style.width = '100px';
-        document.getElementById('home-button').style.left = -50 + 0.5*document.getElementById('middle-nav').offsetWidth + 'px';
-        document.getElementById('home-button').style.top = '-10px';
-    }
-    else {
-        let imageSize = homeButtonSize - scroll*pixelScrollHorizontal;
-        document.getElementById('home-button').style.height = imageSize+'px';
-        document.getElementById('home-button').style.width = imageSize+'px';
-        document.getElementById('home-button').style.left = -0.5*(imageSize - document.getElementById('middle-nav').offsetWidth)+'px';
-        document.getElementById('home-button').style.top = -60 + scroll*pixelScrollVertical+'px';
-    }
-    };
-    
-    
 /* when_resizing() and when_scrolling() run when html loaded to display 
 everything correctly. */
 when_resizing();
 
-/* The event loops for resizing and scrolling */
+/* The event loops for resizing. */
 window.onresize = when_resizing;
-$(window).scroll(function (event){
-    when_scrolling();
-});
-
 });
