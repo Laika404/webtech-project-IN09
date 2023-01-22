@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="icon" href="gea-icon.png" sizes="64x64">
         <link rel="stylesheet" href="style.css">
-        <?php require "footer-style.css" ?>
+        <link rel="stylesheet footer" href="footer-style.css">
         <!--Icon libraries -->
         <script type="module" src="https://unpkg.com/ionicons@5.0.0/dist/ionicons/ionicons.esm.js"></script>
         <script nomodule="" src="https://unpkg.com/ionicons@5.0.0/dist/ionicons/ionicons.js"></script>
