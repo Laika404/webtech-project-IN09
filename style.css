@@ -18,6 +18,9 @@
 }
 
 body{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
     height:3000px;
 }
 
@@ -162,12 +165,12 @@ nav {
 
 .drop-down-content {
     display:none;
-    position:fixed; 
-    z-index: 1; 
+    position:fixed;
+    z-index: 1;
     top: var(--height_nav_bar);
     width:200px;
     box-shadow: var(--basic-shadow);
-    
+
 }
 
 .drop-down-content > div {
@@ -212,7 +215,7 @@ nav {
 }
 
 
-/*.search-resize {} = Used when search bar is active, (some elements will 
+/*.search-resize {} = Used when search bar is active, (some elements will
 become hidden because of the size of the search bar.) */
 
 
