@@ -38,5 +38,5 @@
             </div>
             <!--Invisible div behind the nav bar, so text won't show up behind the nav bar-->
             <div id="nav-filler"></div>
-            <script src="nav-bar-script.js"></script>
-        </nav>
+            <script src="nav-bar-home-script.js"></script>
+</nav>
