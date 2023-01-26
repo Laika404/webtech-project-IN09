@@ -1,0 +1,193 @@
+:root {
+    /* color pallete */
+    --country-information-background-color:  #f1d8ff ;
+    --country-image-background-color: rgba( 249, 201, 255, 0.6); 
+    --table-background-color: white;
+    --country-button-background-color: green;
+    --article-container-color: rgb(105, 103, 103);
+    --table-background-color-1:  #d8d8d8;
+    --table-background-color-2:  #d8f5ff;
+    --table-hover-color: rgb(228, 165, 107);
+    --country-button-text-color: white;
+
+    /* background images for countries */
+    --country-image-forest: url(https://thumbs.dreamstime.com/b/forest-panorama-rays-sunlight-scenic-fresh-green-deciduous-trees-sun-casting-its-light-foliage-53826213.jpg);
+    --country-image-mountain: url(https://upload.wikimedia.org/wikipedia/commons/e/e7/Everest_North_Face_toward_Base_Camp_Tibet_Luca_Galuzzi_2006.jpg);
+    --country-image-sea: url(https://t3.ftcdn.net/jpg/02/43/25/90/360_F_243259090_crbVsAqKF3PC2jk2eKiUwZHBPH8Q6y9Y.jpg);
+    --country-image-desert: url(https://media.istockphoto.com/id/1296913338/photo/sonoran-sunset.jpg?s=612x612&w=0&k=20&c=lGXd-vnDmH_bCnR53BNmwxsh3qn8MBLQoh5M926QAbY=);
+    --country-image-jungle: url(https://images.unsplash.com/photo-1586957469525-7850e7bef283?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTV8fGp1bmdsZXxlbnwwfHwwfHw%3D&w=1000&q=80);
+}
+
+/* All different images for the image on top in country information */
+.forest {
+    background: var(--country-image-forest) var(--country-image-background-color);
+    background-size: cover;
+    background-blend-mode: multiply;
+}
+
+.jungle {
+    background: var(--country-image-jungle) var(--country-image-background-color);
+    background-size: cover;
+    background-blend-mode: multiply;
+}
+
+.mountain {
+    background: var(--country-image-mountain) var(--country-image-background-color);
+    background-size: cover;
+    background-repeat: repeat;
+    background-blend-mode: multiply;
+    background-position: 0px 35%;
+    
+}
+
+.sea {
+    background: var(--country-image-sea) var(--country-image-background-color);
+    background-size: cover;
+    background-blend-mode: multiply;
+    background-position: 0px 70%;
+}
+
+.desert {
+    background: var(--country-image-desert) var(--country-image-background-color);
+    background-size: cover;
+    background-blend-mode: multiply;
+    background-position: 0px 70%;
+}
+
+
+
+
+.country-information {
+    bottom: 0;
+    right: 0;
+    color: black;
+    background-color: var(--country-information-background-color);
+    width: 50%;
+    height: 100%;
+    z-index: 1;
+    box-shadow: var(--basic-shadow);
+}
+/*sided means to the right side, unsided means under country bar */
+.country-information.sided {
+    position: fixed;
+}
+
+.country-information.unsided {
+    position:relative;
+    width: 100%;
+}
+
+.country-information.unsided #nav-filler{
+    display:none;
+}
+
+.country-information.unsided #country-article-container {
+    position:relative;
+    margin-top: 10px;
+}
+
+.country-information.unsided #country-article-container p {
+    display: none;
+}
+
+#country-article-container {
+    position: absolute;
+    bottom: 0px;
+    height: 210px;
+    width: 100%;
+    background-color: var(--article-container-color);
+    display:flex;
+    flex-wrap: nowrap;
+    box-shadow: var(--basic-shadow);
+}
+
+#country-article-container .article-thumbnail {
+    display: block;
+    height: 200px;
+}
+
+#country-above-image-container {
+    width:100%;
+    height: 100px;
+    background-repeat: no-repeat;
+}
+
+#country-text-container {
+    padding: 10px;
+    font-size: 100%;
+}
+
+#country-text-container table, 
+#country-text-container th, 
+#country-text-container td {
+    border: solid;
+    border-width: 2px;
+    border-collapse: collapse;
+}
+
+#country-text-container table {
+    width:80%;
+    box-shadow: 0px 0px 3px 1px rgba(0, 0, 0, 0.4);
+    background-color: white;
+}
+
+#country-text-container th, 
+#country-text-container td {
+    padding-left: 5px;
+    transition: background-color 0.3s;
+}
+
+#country-text-container th {
+    background-color: var(--table-background-color-1);
+    padding-bottom: 7px;
+}
+
+#country-text-container tr:nth-child(odd) {
+    background-color: var(--table-background-color-2);
+}
+
+#country-text-container td:nth-child(odd):hover {
+    background-color: var(--table-hover-color);
+}
+
+#country-text-container td:nth-child(even) {
+    text-align: center;
+}
+
+#article-button {
+    display: inline-block;
+    border-style: solid;
+    border-color: var(--country-button-text-color);
+    border-width: 2px;
+    font-size: 120%;
+    margin-left: 10px;
+    background-color: var(--country-button-background-color);
+    padding:5px;
+    box-shadow: 0px 0px 3px 1px rgba(0, 0, 0, 0.4);
+    color: white;
+    transition: background-color 0.3s;
+}
+
+#article-button:hover {
+    background-color: var(--table-hover-color);
+}
+
+/* changes to page based on viewport.*/
+/*horizontal */
+@media screen and (max-width: 1750px) {
+    .country-information.sided #extra-css-container {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 850px) {
+    #country-article-container .article-thumbnail:nth-child(even){
+        display: none;
+    }
+}
+/*vertical*/
+@media screen and (max-height: 850px) {
+    .country-information.sided #extra-css-container {
+        display: none;
+    }
+}
