@@ -1,0 +1,139 @@
+* {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+  text-decoration: none;
+}
+
+body {
+  background: linear-gradient(to bottom right, #3F37C9, #abe5e9) no-repeat center center fixed;
+  background-size: cover;
+}
+
+dark-theme {
+  background: linear-gradient(to bottom right, #3F37C9, #B5179E) no-repeat center center fixed;
+  background-size: cover;
+}
+
+main {
+  height: 100%;
+  width: 100%;
+}
+
+#main-img-container {
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  justify-content: center;
+  padding-bottom: 1em;
+}
+
+img {
+  height: 15%;
+  width: 15%;
+  min-width: 10em;
+  min-height: 10em;
+}
+
+#rectangle {
+  display: flex;
+  flex-wrap: wrap;
+  width: 35%;
+  background: #f5f5f5;
+  border-radius: 2em;
+  flex-direction: column;
+  align-items: center;
+  min-width: 20em;
+}
+
+dark-rectangle {
+  display: flex;
+  flex-wrap: wrap;
+  width: 35%;
+  background: #023E8A;
+  border-radius: 2em;
+  flex-direction: column;
+  align-items: center;
+  min-width: 20em;
+}
+
+#rectangle-container {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+}
+
+form {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.text-prompt {
+  display: flex;
+  flex-wrap: nowrap;
+  border-style: solid;
+  background-color: #f5f5f5;
+  width: 20em;
+  height: 2em;
+  border-radius: 5em;
+  border-width: 0.15em;
+}
+
+#knop-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 1em;
+  padding-bottom: 0.5em;
+}
+
+#knoppen-container-2 {
+  padding-bottom: 0.5em;
+}
+
+button {
+  border: none;
+  padding: 0.5em 0.75em 0.5em 0.75em;
+  color: #f5f5f5;
+  background-color: #7285ee;
+}
+
+button:hover {
+  background-color: #B5179E;
+  transition: 0.5s;
+}
+
+::placeholder {
+  color: black;
+}
+
+#a {
+  margin-left: -0.5em;
+}
+
+#b {
+  margin-left: 0.5em;
+}
+
+h1,
+h2,
+p {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS',
+      sans-serif;
+  color: #3F37C9;
+}
+
+h1 {
+  text-align: center;
+  padding-top: 1.5em;
+  padding-bottom: .5em;
+  color: #f5f5f5;
+}
+
+h2 {
+  padding: 1em 0em 1em 0em;
+}

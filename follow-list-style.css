@@ -1,0 +1,7 @@
+#followed-list-container {
+    margin-top: 30px;
+}
+
+a {
+    color: var(--title-color);
+}

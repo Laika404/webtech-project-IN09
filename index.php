@@ -1,8 +1,10 @@
+<?php session_start()?>
+
 <!DOCTYPE html>
 <html lang="nl">
     <head>
         <title>Geademos - home</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="basic.css">
         <?php require "nav-bar-head.php" ?>
         <link rel="stylesheet" href="home-body.css">
@@ -17,24 +19,18 @@
         <div id="home-info">
             <div class="home-information">
                 <h1> Geademos </h1>
-                <p>Uitleg site - Onbegrijpelijk veel mensen hebben familiebetrek
-                    kingen, vrienden of kennissen te Amsterdam. Het is een versc
-                    hijnsel dat ik eenvoudig toeschrijf aan de veelheid der inwo
-                    ners van die hoofdstad. Ik had er voor een paar jaren nog ee
-                    n verre neef. Waar hij nu is, weet ik niet. Ik geloof dat hi
-                    j naar de West gegaan is. Misschien heeft de een of ander va
-                    n mijn lezers hem wel brieven meegegeven. In dat geval hebbe
-                    n zij een nauwgezette, maar onvriendelijke bezorger gehad, al
-                    s uit de inhoud van deze weinige bladzijden waarschijnlijk d
-                    uidelijk worden zal. </p>
+                <p> Wij, GeaDemos, hebben deze site gemaakt om de wereld een 
+                    klein beetje democratischer te maken. We hopen dat door 
+                    informatie beschikbaar te maken mensen een beter begrip 
+                    kunnen krijgen met wat er aan de hand is in een land of 
+                    op de wereld. Dit doen wij, als community, door artikelen 
+                    te maken over dingen die relevant zijn totdat land.</p>
             </div>
             <div id="home-middle">
             </div>
             <div class="home-information">
-                <h1>Meest trending artikelen</h1>
-                <?php for ($i=0;$i <= 2; $i++) {
-                   include 'article-thumbnail.php';
-                } ?>
+                <h1>Nieuwste artikelen</h1>
+                <div id="main-articles"></div>
             </div>
         </div>
         </section>
@@ -58,7 +54,7 @@
             <div class="country-bar" id="Honduras"  <?php echo $country_events ?>>Honduras<span class="country-drop"> <i class="fa-solid fa-caret-down"></i></span></div>
             <div class="country-bar" id="Nicaragua"  <?php echo $country_events ?>>Nicaragua<span class="country-drop"> <i class="fa-solid fa-caret-down"></i></span></div>
             <div class="country-bar" id="Costa-Rica"  <?php echo $country_events ?>>Costa-Rica<span class="country-drop"> <i class="fa-solid fa-caret-down"></i></span></div>
-            <div class="country-bar" id="Panama"  <?php echo $country_events ?>>Panama<span class="country-drop"> <i class="fa-solid fa-caret-down"></i></span></div>            
+            <div class="country-bar" id="Panama"  <?php echo $country_events ?>>Panama<span class="country-drop"> <i class="fa-solid fa-caret-down"></i></span></div>
             <h1>Zuid-Amerika</h1>
             <div class="country-bar" id="Colombia"  <?php echo $country_events ?>>Colombia<span class="country-drop"> <i class="fa-solid fa-caret-down"></i></span></div>
             <div class="country-bar" id="Venezuela"  <?php echo $country_events ?>>Venezuela<span class="country-drop"> <i class="fa-solid fa-caret-down"></i></span></div>
@@ -79,6 +75,9 @@
         </div>
         </section>
         <?php include 'footer-body.php' ?>
+    <script src="get-articles-script.js"></script>
     <script src="home-body-script.js"></script>
+    <!-- gets the thumbnails to show the most recent articles-->
+    <script>getArticles("main-articles", {amount: 3, startPoint: 0});</script>
     </body>
 </html>

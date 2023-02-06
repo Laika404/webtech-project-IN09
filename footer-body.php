@@ -7,8 +7,9 @@
 
     <div>
       <ul style="list-style-type:none;">
-        <li><a href="#">Over ons</a></li>
-        <li><a href="#">Cookies</a></li>
+        <li><a href="about-us.php">Over ons</a></li>
+        <li><a href="cookie-policy.php">Cookies</a></li>
+        <li><a href="privacy-policy.php">Privacy</a></li>
       </ul>
     </div>
 
@@ -16,9 +17,11 @@
       <h3>
         Contact
       </h3>
-      <a href="#"><i class="fa-brands fa-square-facebook fa-lg"></i></a>
-      <a href="#"><i class="fa-brands fa-instagram fa-lg"></i></a>
-      <a href="#"><i class="fa-brands fa-twitter fa-lg"></i></a>
+      <a href="https://www.facebook.com/profile.php?id=100089589684494" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-square-facebook fa-lg"></i></a>
+      <a href="https://www.instagram.com/geademos/?next=%2F" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-instagram fa-lg"></i></a>
+      <a href="https://twitter.com/GeaDemos" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-twitter fa-lg"></i></a>
+      <br>
+      <a href="mailto:GeaDemosWeb@gmail.com">GeaDemosWeb@gmail.com</a>
     </div>
 
     <!-- This is a separate break line -->

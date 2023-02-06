@@ -1,0 +1,101 @@
+/* Maakt de border om te tekst en de grootte in de tekst. Zo ver ik 
+heb begrepen kan niet alles in percentages */
+:root{
+    --color_article_border: solid grey;
+    --color_article_background: white;
+    --color_h1_titel: #451754;
+    --body-size: calc(50% - 150px);
+}
+
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+
+article {
+    font-size: 100%;
+    width: 60%;
+    border: var(--color_article_border);
+    padding: 10px 5%;
+    border-width: none;
+    border-radius: 2%;
+    margin: 0 auto;
+    color: var(--basic-text-style);
+    background-color: var(--article-background-color);
+}
+
+h1 {
+    margin-bottom: 20px;
+    color: var(--title-color);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.about-foto {
+    border-style: solid;
+    border-color: var(--basic-text-style);
+    border-width: 5px;
+}
+
+#big-image {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 50px;
+    border-bottom-style: solid;
+    border-color: var(--color_article_border);
+    padding-bottom: 15px;
+    margin-top: 60px;
+}
+
+#team-foto {
+    width: 80%;
+    border-style: solid;
+    border-color: var(--basic-text-style);
+    border-width: 5px;
+}
+
+.member-container {
+    width:100%;
+    display:flex;
+    flex-wrap: nowrap;
+    justify-content:left;
+    min-height: 200px;
+    margin-top:30px;
+    border-bottom-style: solid;
+    border-color: var(--color_article_border);
+    padding-bottom: 10px;
+}
+
+.member-container-text {
+    padding-left: 30px;
+}
+
+/* Zet de foto's van ons allemaal links van de tekst */
+.img2{
+    width:200px;
+    float:left;
+}
+
+/* Kleine tekst aanpassingen */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-size: var(--body-size);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+@media screen and (max-width:700px) {
+    .member-container {
+        flex-wrap:wrap;
+    }
+    .member-container-text {
+        padding-top: 10px;
+        padding-left: 5px;
+    }
+
+    article {
+        width: 80%;
+    }
+}

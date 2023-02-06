@@ -1,0 +1,218 @@
+:root {
+    --title-color: #451754;
+    --screening-color: red;
+    --article-background-color: white;
+    --date-color: gray;
+    --date-text-color: rgb(78, 78, 78);
+    --buttons-container-background-color: lightgray;
+    --a-background-color: #7209B7;
+    --a-hover-background-color: #9725e2;
+    --button-text-color: white;
+    --a-text-color: #7209B7;
+}
+
+a {
+    color: var(--a-text-color);
+}
+
+#article-body {
+    background-color: var(--article-background-color);
+    font-family: 'Courier New', Courier, monospace;
+    width:50%;
+    min-height: 100px;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: var(--basic-shadow);
+    padding-top: 50px;
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 50px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+#screening-container {
+    width: 100%;
+    font-size: 130%;
+    color: var(--screening-color);
+    border-bottom-style: solid;
+    border-bottom-width:10px;
+    border-bottom-color: var(--screening-color);
+
+}
+
+#title-container {
+    width: 100%;
+    padding: 20px;
+    border-bottom-style: solid;
+    border-bottom-width:3px;
+    border-bottom-color: var(--date-color);
+
+}
+
+#title-container img {
+    width: 30%;
+    height: auto;
+    max-height: 400px;
+    border-style: solid;
+    float:left;
+    margin-right: 20px;
+    margin-bottom: 20px;
+
+}
+
+#title-container h1 {
+    margin-bottom: 20px;
+    color: var(--title-color);
+}
+#title-container p {
+    font-size: 110%;
+    color: var(--title-color);
+}
+
+#small-information-container {
+    width: 100%;
+    display: flex;
+    padding-top: 0.1em;
+    font-size: 90%;
+    color: var(--date-text-color);
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+#small-information-container div {
+    margin: 0.2em;
+}
+
+#user-link {
+    text-decoration: underline;
+}
+
+#article-content-container {
+    padding: 20px;
+    margin-top: 30px;
+    width:100%;
+    overflow-wrap: break-word;
+}
+
+#article-content-container h2 {
+    margin-bottom: 30px;
+    color: var(--title-color);
+}
+
+#article-content-container p {
+    margin-bottom: 30px;
+}
+
+#buttons-container {
+    border-top-style: solid;
+    border-color: var(--date-color);
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding-top: 20px;
+}
+
+#buttons-container a {
+    text-decoration: none;
+    display: block;
+    font-size: 120%;
+    background-color: var(--a-background-color);
+    color: var(--button-text-color);
+    border-style: solid;
+    border-color: black;
+    border-radius: 0;
+    padding: 0.3em;
+    margin: 10px;
+    box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.3);
+}
+
+#buttons-container a:hover {
+    color: var(--button-text-color);
+    background-color: var(--a-hover-background-color);
+}
+
+#article-tags-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+button {
+    text-decoration: none;
+    display: block;
+    font-size: 160%;
+    background-color: var(--a-background-color);
+    color: var(--button-text-color);
+    border-style: solid;
+    border-color: black;
+    border-radius: 0;
+    padding: 0.3em;
+    margin: 10px;
+    box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.3);
+}
+
+button:hover {
+    color: var(--button-text-color);
+    background-color: var(--a-hover-background-color);
+}
+
+#like-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+#like-text {
+    font-size:140%;
+}
+
+.liked {
+    background-color: darkgreen;
+}
+
+.liked:hover {
+    background-color: green;
+}
+
+
+
+#special-buttons-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+#delete-button  {
+    content: url("image/delete.png");
+    width: 50px;
+    height: 50px;
+    margin-left: 10px;
+}
+
+#delete-button:hover {
+    content: url("image/delete-hover.png");
+}
+
+
+#approve-button {
+    content: url("approve.png");
+    width: 50px;
+    height: 50px;
+    margin-left: 10px;
+}
+
+#approve-button:hover {
+    content: url("approve-hover.png");
+}
+
+/* when resizing */
+@media screen and (max-width: 1000px) {
+    #article-body {
+        width: 80%;
+    }
+
+    #title-container img {
+        width: 50%;
+    }
+}

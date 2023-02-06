@@ -12,9 +12,15 @@ $country_information = $country_data['content'];
 // You can choose between forest, jungle, mountain, sea, desert
 $country_biome = $country_data['biome'];
 // See actual table to see what each array entry means
-$table_information_array = array(1, 2, 3, 4, 5, 6, 7);
+$table_information_array = array($country_data["score"], 
+$country_data["elections"],
+$country_data["functionality"], 
+$country_data["participation"], 
+$country_data["culture"], 
+$country_data["freedom"], 
+$country_data["category"]);
 // link to the search page for those articles.
-$search_url = "search-page.php?fsearch=" . $country_name;
+$search_url = "search-page.php?search=&land-tag=" . $country_name;
 
 ?>
 
@@ -31,6 +37,7 @@ $search_url = "search-page.php?fsearch=" . $country_name;
                 <br>
                 <h3>Democratische statistieken</h3>
                 <br>
+                <!-- Democratic table data -->
                 <table>
                     <tr>
                         <th>Statistiek</th>
@@ -39,28 +46,55 @@ $search_url = "search-page.php?fsearch=" . $country_name;
                         <th>Waarde</th>
                     </tr>
                     <tr>
-                        <td >Score</td>
+                        <td title = 
+"De gemiddelde punten aan de hand van alle andere parameters">Score</td>
+
                         <td><?php echo $table_information_array[0] ?></td>
-                        <td>Politieke cultuur</td>
+                        <td title=
+"Hier wordt gemeten hoe gescheiden religie en
+andere mogelijke bestuursvormen 
+zijn van de regering">Politieke cultuur</td>
                         <td><?php echo $table_information_array[4] ?></td>
                     </tr>
                     <tr>
-                        <td>Verkiezingen en pluralisme</td>
+                        <td title = 
+"Hier wordt gekeken naar elementen, 
+zoals veiligheid van de kiezers tijdens verkiezingen 
+en het lopen van het rechtsprocess zonder 
+dat een van de deelnemers een voordeel heeft.
+                        ">Verkiezingen en pluralisme</td>
                         <td><?php echo $table_information_array[1] ?></td>
-                        <td>Burgerlijke vrijheden</td>
+                        <td title = 
+"Hier wordt gekeken naar elementen, zoals 
+vrijheid van meningsuiting, internettoegang, scheiding der 
+machten, openbare veiligheid en gelijkheid 
+voor de wet.">Burgerlijke vrijheden</td>
                         <td><?php echo $table_information_array[5] ?></td>
                     </tr>
                     <tr>
-                        <td>Functioneren regering</td>
+                        <td title = 
+"Hier wordt gekeken of enig element buiten 
+de gekozen burgerregering invloed heeft, zoals het leger, 
+buitenlandse mogendheden en religieuze groeperingen. 
+Daarnaast wordt gekeken dingen zoals vertrouwen in de 
+overheid, transparantie van het mandaat en 
+invloed op het grondgebied.">Functioneren regering</td>
                         <td><?php echo $table_information_array[2] ?></td>
-                        <td>Categorie</td>
+                        <td title = "De categorie van bestuursvorm">Categorie</td>
                         <td><?php echo $table_information_array[6] ?></td>
                     </tr>
                     <tr>
-                        <td>Politieke deelname</td>
+                        <td title = 
+"De participatie van stemgerechtige bevolking 
+met in het bijzonder vrouwen en minderheidsgroepen. 
+Hierbij wordt ook gekeken naar de pogingen van de 
+regering om de participatie van deze groepen 
+te bevorderen">Politieke deelname</td>
                         <td><?php echo $table_information_array[3] ?></td>
                         <td></td>
                         <td></td>
+                        <!-- Bron: https://www.definebusinessterms.com/nl/democratie-index/ -->
+
                     </tr>
                 </table>
             </div>
@@ -70,9 +104,6 @@ $search_url = "search-page.php?fsearch=" . $country_name;
             <div id="extra-css-container">
             <!-- container that is used by javscript scrolling event etc.-->
             <div id="country-article-container">
-            <?php for ($i=0;$i <= 1; $i++) {
-                   include 'article-thumbnail.php';
-                } ?>
             </div>
             </div>
 </div>

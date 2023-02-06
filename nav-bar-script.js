@@ -1,3 +1,42 @@
+// Create light mode cookie
+function setLightModeCookie(value) {
+    // days
+    var days = 30;
+    var name = "lightMode";
+    var value = value;
+    
+    expireDate = new Date();
+    expireDate.setTime(expireDate.getTime() + (days*24*60*60*1000));
+    let expires = "expires="+ expireDate.toUTCString();
+    document.cookie = name + "=" + value + ";" + expires + ";path=/";
+  }
+
+// return if light mode cookie is day (1) or night (0);
+function isCookieLight() {
+    let decodedCookie = decodeURIComponent(document.cookie);
+    let allCookies = decodedCookie.split(';');
+    let name = "lightMode="
+
+    for (let i=0; i < allCookies.length; i++) {
+        cookie = allCookies[i];
+        // if cookie begins with white spaces
+        while (cookie.charAt(0) == ' ') {
+            cookie = cookie.substring(1);
+        }
+        if (cookie.indexOf("lightMode=") == 0) {
+            // returns value
+            if (cookie.substring(name.length, cookie.length) == "1") {
+                return "1";
+            } else {
+                return "0";
+            }
+        }
+    }
+    return "1";
+}
+
+
+
 // Changes the night mode buttons to their day versions.
 function buttonLight() {
     document.getElementById('night-mode-but').innerHTML = "<ion-icon name='sunny'></ion-icon>";
@@ -13,18 +52,20 @@ function buttonDark() {
 // Toggles night mode.
 var lightMode = true;
 function changeNightMode() {
-    console.log(lightMode);
-
     if (lightMode == true) {
         buttonDark();
         document.getElementById('night-mode-but').setAttribute( "onmouseenter", "buttonLight()" );
         document.getElementById('night-mode-but').setAttribute( "onmouseleave", "buttonDark()" );
+        cssDark();
         lightMode = false;
+        setLightModeCookie(0);
     } else {
         buttonLight();
         document.getElementById('night-mode-but').setAttribute( "onmouseenter", "buttonDark()" );
         document.getElementById('night-mode-but').setAttribute( "onmouseleave", "buttonLight()" );
+        cssLight();
         lightMode = true;
+        setLightModeCookie(1);
     }
 }
 
@@ -100,9 +141,14 @@ function scalingSearchBar () {
 
 /* This function will only run when the html is already loaded */
 $(document).ready(function() {
+    /* check light mode and set light mode */
+    if (isCookieLight() == "0") {
+        changeNightMode();
+    }   
+
 
     /* Changes the navigation bar, when resizing. */
-    function when_resizing() {
+    function whenResizingNav() {
         let windowSize = $(window).width();
         // If drop down button is not visible anymore hide drop down content.
         if ($('#drop-down').css('display') == 'none') {
@@ -114,8 +160,6 @@ $(document).ready(function() {
             scalingSearchBar();
         }
         
-
-
         // If user button is not visible anymore hide drop down content.
         if ($('#right-nav').css('display') == 'none') {
             document.getElementById('user-drop').style.display = 'none';
@@ -123,11 +167,9 @@ $(document).ready(function() {
             userButActive = false;           
         }
     }
-    
-/* when_resizing() and when_scrolling() run when html loaded to display 
-everything correctly. */
-when_resizing();
-
-/* The event loops for resizing. */
-window.onresize = when_resizing;
+    /* when_resizing() runs when html loaded to display everything correctly. */
+    whenResizingNav();
+    $(window).resize(function (event) {
+        whenResizingNav();
+    })
 });

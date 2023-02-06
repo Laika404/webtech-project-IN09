@@ -1,0 +1,206 @@
+/* css variables for light/night button */
+:root {
+    --text-editor-outer-background-color: gray;
+    --text-editor-inner-background-color: white;
+    --button-background-color: #7209B7;
+    --text-area-border-color: #7209B7;
+    --text-area-outer-shadow-color: rgba(114, 9, 183, 0.3);
+    --comments-text-color: gray;
+    --comments-text-color-wrong: red;
+    --button-container-background-color: rgb(77, 77, 77);
+    --button-text-color: white;
+    --button-hover-background-color: #9725e2;
+    --submit-button-background-color: darkgreen;
+    --submit-button-hover-background-color: green;
+    --submit-button-wrong-background-color: rgb(126, 125, 125);
+    --submit-button-wrong-text-color: rgb(156, 156, 156);
+    --text-area-background-color: white;
+
+}
+
+#text-editor-container-outer {
+    background-color: var(--text-editor-outer-background-color);
+    box-shadow: var(--basic-shadow);
+    display: flex;
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    padding-left: 3%;
+    padding-right: 3%;
+    padding-bottom: 10px;
+    flex-wrap:wrap;
+}
+#text-editor-container-button {
+    margin-top:20px;
+    background-color: var(--button-container-background-color);
+    display:flex;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+#text-editor-container-button button{
+    font-size: 120%;
+    background-color: var(--button-background-color);
+    color: var(--button-text-color);
+    border-style: solid;
+    border-color: black;
+    border-radius: 0;
+    padding: 0.3em;
+    margin: 10px;
+    box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.3);
+}
+
+#text-editor-container-button button:hover {
+    background-color: var(--button-hover-background-color);
+}
+
+#text-editor-container-inner {
+    background-color: var(--text-editor-inner-background-color);
+    padding-top: 20px;
+    padding-left: 2%;
+    padding-right: 2%;
+    width: 100%;
+}
+
+#text-editor-container-inner h1 {
+    margin-bottom: 20px;
+}
+
+.gray {
+    color: var(--comments-text-color);
+}
+
+.red {
+    color: var(--comments-text-color-wrong);
+}
+
+.article-text-field {
+    resize: none;
+    overflow: auto;
+    font-family: 'Courier New', Courier, monospace;
+    width: 100%;
+    border-style:outset;
+    border-color: var(--text-area-border-color);
+    border-width: 4px;
+    border-radius: 0%;
+    box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, 0.3) inset;
+    margin-bottom: 20px;
+    padding: 2px;
+    background-color: var(--text-area-background-color);
+    color: var(--basic-text-style);
+}
+.article-text-field:focus {
+    outline: none;
+    box-shadow: 0px 0px 4px 4px var(--text-area-outer-shadow-color);
+}
+.article-title-field {
+    font-size:120%;
+    font-weight: bold;
+    min-height: max-content;
+    height:auto;
+}
+
+.article-subtitle-field {
+    width:80%;
+    font-size:110%;
+    font-weight: bold;
+}
+
+.article-content-field {
+    width:80%;
+    font-size:90%;
+}
+
+.article-editor-content-container {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+}
+.article-content-title{
+    width: 100%;
+}
+
+.delete-button {
+    content: url("image/delete.png");
+    width: 50px;
+    height: 50px;
+    margin-left: 10px;
+}
+
+.delete-button:hover {
+    content:url("image/delete-hover.png");
+}
+
+#tag-container {
+    background-color: var(--button-container-background-color);
+    display:flex;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+#tag-container select{
+    font-size: 120%;
+    background-color: var(--button-background-color);
+    color: var(--button-text-color);
+    border-style: solid;
+    border-color: black;
+    border-radius: 0;
+    padding: 0.3em;
+    margin: 10px;
+    box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.3);
+}
+
+#tag-container select:hover{
+    background-color: var(--button-hover-background-color);
+}
+#tag-container .label-tag {
+    color: var(--button-text-color);
+    font-size: 140%;
+    padding: 20px;
+}
+
+#tag-container span {
+    vertical-align: middle;
+}
+
+#submit-button {
+    width: 100%;
+}
+
+#make-button-wrong {
+    width: 100%;
+    font-size: 145%;
+    background-color: var(--submit-button-wrong-background-color);
+    color: var(--submit-button-wrong-text-color);
+    border-style: solid;
+    border-color: black;
+    padding: 0.60em;
+    box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.3) inset;
+    text-align: center;
+}
+
+#submit-button #make-button {
+    width: 100%;
+    font-size: 130%;
+    background-color: var(--submit-button-background-color);
+    color: var(--button-text-color);
+    border-style: solid;
+    border-color: black;
+    padding: 0.8em;
+    box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.3) inset;
+}
+
+#submit-button #make-button:hover {
+    background-color: var(--submit-button-hover-background-color);
+}
+
+
+/* make the editor more wider when resizing */
+@media screen and (max-width: 1000px) {
+    #text-editor-container-outer {
+        width:80%;
+    }
+}
