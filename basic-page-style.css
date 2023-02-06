@@ -1,0 +1,47 @@
+:root {
+    --title-color: #451754;
+    --screening-color: red;
+    --article-background-color: white;
+    --date-color: gray;
+    --date-text-color: rgb(78, 78, 78);
+    --buttons-container-background-color: lightgray;
+    --a-background-color: #7209B7;
+    --button-text-color: white;
+    --a-hover-background-color: #9725e2;
+}
+
+#content-body {
+    background-color: var(--article-background-color);
+    font-family: 'Courier New', Courier, monospace;
+    width:50%;
+    min-height: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: var(--basic-shadow);
+    padding-top: 50px;
+    margin-bottom: 50px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.lower-border-div {
+    border-bottom-style: solid;
+    width:100%;
+    border-bottom-color: var(--date-color);
+    border-bottom-width: 2px;
+    height:fit-content;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+h1, h2, h3, h4 {
+    color: var(--title-color);
+}
+
+/* resizing events */
+@media screen and (max-width: 1000px) {
+    #content-body {
+        width: 80%;
+    }
+}

@@ -1,0 +1,113 @@
+:root {
+    --home-background-color: #7285ee;
+    --country-bar-background-color: white;
+    --country-bar-background-hover: lightblue;
+    --home-text-color: black;
+    --home-middle-width: 240px;
+    --country-container-background-color: white;
+}
+
+#home-info {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size:130%;
+    background-color: var(--home-background-color);
+    color: var(--home-text-color);
+    padding: 10px;
+    min-height: 700px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    text-shadow: 3px 3px 3px  rgba(0, 0, 0, 0.2);
+    position:relative;
+    z-index: 4;
+
+}
+
+.home-information {
+    width: calc(50% - var(--home-middle-width));
+    padding: 8px;
+    min-width: 300px;
+}
+
+#home-middle {
+   width:calc(2 * var(--home-middle-width)); 
+}
+
+#main-body {
+    background-color: var(--body-background-color);
+}
+
+#country-container {
+    width: 50%;
+    background-color: var(--country-container-background-color);
+    box-shadow:0px 15px 10px rgba(0, 0, 0, 0.3);
+    padding-top: 50px;
+    padding-left: 5%;
+    padding-right: 5%;
+    font-size: 100%;
+    position:relative;
+    z-index: 3;
+    margin-bottom: -10px;
+
+}
+
+#country-container h1 {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.country-bar {
+    position: relative;
+    border:solid;
+    border-color: var(--basic-text-style);
+    box-sizing: border-box;
+    background-color: var(--country-bar-background-color);
+    transition: background-color 0.3s;
+    color: var(--basic-text-style);
+    box-shadow: 0px 0px 3px 1px rgba(0, 0, 0, 0.4);;
+    width: 100%;
+    padding-top: 14px;
+    padding-bottom: 10px;
+    padding-left: 30px;
+    height:60px;
+    font-size: 130%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.country-bar:hover {
+    background-color: var(--country-bar-background-hover);
+}
+
+.country-drop {
+    position: absolute;
+    right: 10px;
+    font-size: larger;
+    display: none;
+}
+
+/* events that happen when resizing the screen */
+@media screen and (max-width: 1099px) {
+    #home-middle {
+        display:none;
+    }
+    .home-information  {
+        width: 50%;
+    }
+}
+
+@media screen and (max-width:850px) {
+    #country-container {
+        font-size:100%;
+        width:100%;
+    }
+    .country-drop {
+        display: inline;
+    }
+}
+
+@media screen and (max-width:750px) {
+    .home-information {
+        width: 100%;
+    }
+}

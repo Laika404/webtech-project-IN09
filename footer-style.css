@@ -1,8 +1,13 @@
 /* Footer element */
+:root{
+  --footer-background-color: #ddd;
+}
+
 .footer {
+    position: relative;
     flex: 0;
     padding: 20px;
-    background: #ddd;
+    background: var(--footer-background-color);
     margin-top: auto;
     /*This is so the footer stays at bottom of page*/
     display: flex;
@@ -10,6 +15,7 @@
     flex-wrap: wrap;
     justify-content: space-evenly;
     row-gap: 1rem;
+    z-index: 4;
   }
 
   .footer>div {
@@ -19,17 +25,19 @@
 
   .footer a {
     text-decoration: none;
-    color: black;
+    color: var(--basic-text-style);
   }
 
   .footer .fa-brands {
-    color: rgb(2, 2, 2);
+    color: var(--basic-text-style);
   }
 
   .break {
     flex-basis: 100%;
     height: 0;
-    border-color: black;
+    border-color: var(--basic-text-style);
     border-style: solid;
     border-width: thin;
   }
+
+  

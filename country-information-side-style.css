@@ -60,14 +60,14 @@
 .country-information {
     bottom: 0;
     right: 0;
-    color: black;
     background-color: var(--country-information-background-color);
     width: 50%;
     height: 100%;
     z-index: 1;
     box-shadow: var(--basic-shadow);
 }
-/*sided means to the right side, unsided means under country bar */
+/*sided means to the right side, unsided means under country bar, classes used by javascript to determine
+where the country information should be displayed. */
 .country-information.sided {
     position: fixed;
 }
@@ -86,7 +86,7 @@
     margin-top: 10px;
 }
 
-.country-information.unsided #country-article-container p {
+.country-information #country-article-container p {
     display: none;
 }
 
@@ -101,9 +101,16 @@
     box-shadow: var(--basic-shadow);
 }
 
+#articles-give-1 {
+    width:100%;
+    display:flex;
+    flex-wrap: nowrap;
+}
+
 #country-article-container .article-thumbnail {
     display: block;
     height: 200px;
+    width:50%;
 }
 
 #country-above-image-container {
@@ -128,13 +135,19 @@
 #country-text-container table {
     width:80%;
     box-shadow: 0px 0px 3px 1px rgba(0, 0, 0, 0.4);
-    background-color: white;
+    background-color: var(--table-background-color);
 }
 
 #country-text-container th, 
 #country-text-container td {
     padding-left: 5px;
     transition: background-color 0.3s;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 #country-text-container th {
@@ -164,7 +177,7 @@
     background-color: var(--country-button-background-color);
     padding:5px;
     box-shadow: 0px 0px 3px 1px rgba(0, 0, 0, 0.4);
-    color: white;
+    color: var(--country-button-text-color);
     transition: background-color 0.3s;
 }
 
@@ -181,7 +194,10 @@
 }
 
 @media screen and (max-width: 850px) {
-    #country-article-container .article-thumbnail:nth-child(even){
+    #country-article-container .article-thumbnail {
+        width:100%;
+    }
+    #country-article-container .article-thumbnail:nth-child(0){
         display: none;
     }
 }
@@ -191,3 +207,4 @@
         display: none;
     }
 }
+

@@ -1,16 +1,34 @@
 <?php
+session_start();
+// connect to database and get the requested data.
+require 'connect.php';
+$article_id = htmlspecialchars($_GET["a-id"]);
+$stmt = $pdo->prepare('SELECT * FROM `articles` WHERE `ID` = :article_id');
+$stmt->execute(array(':article_id' => $article_id));
+$article_data = $stmt->fetch();
+
 // All the specific information for an article thumbnail
-$image_url= 'https://media.istockphoto.com/id/1334419989/photo/3d-red-question-mark.jpg?s=612x612&w=0&k=20&c=bpaGVuyt_ACui3xK8CvkeoVQC-jczxANZTMXGKAE11E=';
-$article_url='index.php';
-$article_title = 'Artikel titel';
-$article_brief= 'Vleermuizen zijn wettelijk beschermd, maar verliezen massaal hun verblijfplaatsen en worden soms zelfs gedood als wij onze woningen isoleren. De Raad van State moet de toekomst van de vleermuizen én die van de verduurzaming bepalen. "De isolatiebranche heeft tien, vijftien jaar als cowboys tekeer kunnen gaan."'; // Max ... words.
-$article_tags = array("economie", "Brazilië", "Weet ik het");
+$image_url= $article_data['picture'];
+$article_url='article.php?a-id=' . $article_id;
+$article_title = $article_data['title'];
+$article_brief= $article_data['summary'];
+$article_tags = array($article_data['land-tag'], $article_data['subject-tag']);
+
+// Screened articles can not be seen by not admins.
+if ($article_data['screened-tag'] == 0) {
+    if (!(array_key_exists('user-inf', $_SESSION) && (($_SESSION['user-inf']['type'] == 'admin') || ($_SESSION['user-inf']['ID'] == $article_data['author-ID'])))) {
+        $image_url= "";
+        $article_title= "restricted";
+        $article_brief= "";   
+        $article_tags = array();
+    }
+}
 ?>
 
 <!-- An article thumbnail template -->
- <a class="article-thumbnail" title="<?php echo $article_title ?>" href="<?php echo $article_url ?>"> 
+<a class="article-thumbnail" title="<?php echo $article_title ?>" href="<?php echo $article_url ?>"> 
     <div class='article-message'> 
-    <img class= 'article-thumbnail-image' src=<?php echo $image_url?>>
+    <img class= 'article-thumbnail-image' src='<?php echo $image_url?>' onerror = "this.src = 'flowerfield.jpg'";>
         <h1><?php echo $article_title ?></h1>
         <p><?php echo $article_brief ?></p>
     </div>

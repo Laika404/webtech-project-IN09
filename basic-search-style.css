@@ -1,0 +1,91 @@
+:root {
+    --title-color: #451754;
+    --screening-color: red;
+    --article-background-color: white;
+    --search-content-background-color: rgb(233, 233, 233);
+    --date-color: gray;
+    --date-text-color: rgb(78, 78, 78);
+    --buttons-container-background-color: lightgray;
+    --a-background-color: #7209B7;
+    --a-hover-color: #9725e2;
+    --button-text-color: white;
+}
+
+#content-body {
+    background-color: var(--article-background-color);
+    font-family: 'Courier New', Courier, monospace;
+    width:80%;
+    min-height: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: var(--basic-shadow);
+    padding-top: 50px;
+    margin-bottom: 50px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.lower-border-div {
+    border-bottom-style: solid;
+    width:100%;
+    border-bottom-color: var(--date-color);
+    border-bottom-width: 2px;
+    height:fit-content;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+#inline-button-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+
+select, button{
+    font-size: 120%;
+    background-color: var(--a-background-color);
+    color: var(--button-text-color);
+    border-style: solid;
+    border-color: black;
+    border-radius: 0;
+    padding: 0.3em;
+    margin: 10px;
+    box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.3);
+}
+
+select:hover, button:hover{
+    background-color: var(--a-hover-color);
+}
+
+.article-thumbnails-container {
+    background-color: var(--search-content-background-color);
+    font-family: 'Courier New', Courier, monospace;
+    width:80%;
+    height:fit-content;
+    box-shadow: var(--basic-shadow);
+    padding: 30px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    margin-left: 2%;
+    font-size: 130%;
+}
+
+.small-height {
+    height:fit-content;
+}
+
+h1, h2, h3, h4 {
+    color: var(--title-color);
+}
+
+/* resizing events */
+@media screen and (max-width: 1000px) {
+    #content-body {
+        width: 90%;
+    }
+    .article-thumbnails-container {
+        width: 94%;
+    }
+}

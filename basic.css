@@ -1,5 +1,8 @@
 /* All css configurations that every page of the website should have */
-
+:root {
+    --body-background-color: #f1e1f3;
+    --basic-text-style: black;
+}
 
 * {
     padding:0px;
@@ -12,6 +15,8 @@ body {
     display:flex;
     min-height: 100vh;
     flex-direction: column;
+    background-color: var(--body-background-color);
+    color: var(--basic-text-style);
 }
 
 a {

@@ -13,6 +13,7 @@
     --drop-text-color: #3A0CA3;
     --logo-text-color: #B5179E;
     --drop-border-color: #c295ba;
+    --search-background-color: white;
 
     --basic-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.6);
 }
@@ -127,6 +128,8 @@ nav {
     border-radius:10% / 50%;
     transition: width 0.5s;
     margin-left: 1%;
+    color: var(--basic-text-style);
+    background-color: var(--search-background-color);
 }
 
 #nav-search {
@@ -181,7 +184,7 @@ nav {
 
 #user-drop {
     right:0px;
-    width:100px;
+    width:190px;
 }
 
 #user-drop > div {
@@ -356,3 +359,4 @@ become hidden because of the size of the search bar.) */
         display: block;
     }
 }
+

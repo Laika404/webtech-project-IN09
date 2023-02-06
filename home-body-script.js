@@ -3,6 +3,11 @@ var countryContainerResize = 850;
 // The country information box that is currently visible
 var currentVisibleCountry = null;
 
+// used for thumbnail images who have a not working image
+function alternateImage (element) {
+    element.src= 'https://images.esellerpro.com/3274/I/952/0/lrgscaleJG009%20Field%20of%20Flowers%20copy.jpg';
+}
+
 // Moves the country information container (mobile case = under it's respective button)
 function moveCountryBox (event_id) {
     if ($(window).width() >= countryContainerResize) {
@@ -39,6 +44,11 @@ function getCountryHTML (country) {
         document.getElementById("ajax-country-container").innerHTML = this.responseText;
         moveCountryBox(currentVisibleCountry);
         scrollFunction();
+        var amount = 2;
+        if ($(window).width() <= countryContainerResize) {
+            amount = 1;
+        }
+        getArticles("country-article-container", {amount: amount, thumbnailsDIVID: "articles-give-1", countryTag:country.replace("-", " ")});
     }
     xmlhttp.open("GET","country-information-side.php?c_name=" + country.replace("-", " "), true);
     xmlhttp.send();

@@ -1,3 +1,12 @@
+<?php
+// if php file does not have a session the session is started
+if (!isset($_SESSION)) {
+        session_start();
+}
+
+?>
+
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
         <link rel="icon" href="gea-icon.png" sizes="64x64">
         <link rel="stylesheet" href="nav-bar-style.css">
